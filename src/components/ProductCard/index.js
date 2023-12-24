@@ -6,9 +6,11 @@ const ProductCard = props => {
   const {productData} = props
   const {title, brand, imageUrl, rating, price} = productData
 
+  const onImageDetails = () => {}
+
   return (
     //   Wrap with Link from react-router-dom
-    <Link to="/products/:id" className="link">
+    <Link to="/products/:id" className="link" onClick={onImageDetails}>
       <li className="product-item">
         <img src={imageUrl} alt="product" className="thumbnail" />
         <h1 className="title">{title}</h1>
