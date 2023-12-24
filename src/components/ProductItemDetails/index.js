@@ -25,7 +25,7 @@ class ProductItemDetails extends Component {
 
   renderImageDetails = () => (
     <div className="bg-container">
-      <h1>shiva paravathi</h1>
+      <h1>hii</h1>
     </div>
   )
 
