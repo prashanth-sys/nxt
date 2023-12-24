@@ -4,6 +4,8 @@ import Header from '../Header'
 import './index.css'
 
 class ProductItemDetails extends Component {
+  state = {productData: {}}
+
   componentDidMount() {
     this.getImageDetails()
   }
@@ -17,17 +19,31 @@ class ProductItemDetails extends Component {
     const data = await response.json()
     console.log(data)
     if (response.ok === true) {
-      this.renderImageDetails()
+      const updatedData = {
+        id: data.id,
+        imageURL: data.image_url,
+        title: data.title,
+        brand: data.brand,
+        totalReviews: data.total_reviews,
+        rating: data.rating,
+        availability: data.availability,
+      }
+      this.setState({productData: updatedData})
     } else {
       this.renderFailureShow()
     }
   }
 
-  renderImageDetails = () => (
-    <div className="bg-container">
-      <h1>hii</h1>
-    </div>
-  )
+  renderImageDetails = () => {
+    const {productData} = this.state
+    const {imageURL} = productData
+    return (
+      <div className="bg-container">
+        <h1>hii</h1>
+        <img src={imageURL} alt="krishna" />
+      </div>
+    )
+  }
 
   render() {
     return (
